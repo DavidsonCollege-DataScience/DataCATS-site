@@ -1,7 +1,7 @@
 ---
 name: Pete Benbow
 pronouns: he/him
-headshot: ../../assets/faculty-headshots/animePete.jpg
+headshot: ../../assets/faculty-headshots/fishingPete.jpg
 titles:
   - James B. Duke Assistant Professor of the Practice in Data Science
   - Director of Data CATS
