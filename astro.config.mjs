@@ -9,8 +9,8 @@ import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://davidsoncollege-datacats.github.io',
-  base: '/DataCATS-site/',
+  site: 'https://datasci.davidson.edu',
+  base: '/datacats/',
   integrations: [svelte(), icon(), mdx()],
 
   vite: {

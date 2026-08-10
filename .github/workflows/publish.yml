@@ -1,0 +1,44 @@
+name: Build and publish to datasci-hub
+
+# Builds the Astro site, then publishes dist/ into the datacats/ subfolder
+# of DavidsonCollege-DataScience/datasci-hub, the single repo that actually
+# deploys to the datasci.davidson.edu Azure Static Web App. See that repo's
+# README for the full cross-repo architecture and required secrets.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+
+      - name: Checkout datasci-hub
+        uses: actions/checkout@v4
+        with:
+          repository: DavidsonCollege-DataScience/datasci-hub
+          token: ${{ secrets.HUB_REPO_PUSH_TOKEN }}
+          path: hub
+
+      - name: Sync build output into hub's /datacats
+        run: |
+          rsync -a --delete dist/ hub/datacats/
+          cd hub
+          git config user.name "DataCATS-site CI"
+          git config user.email "actions@users.noreply.github.com"
+          git add datacats
+          if git diff --cached --quiet; then
+            echo "No changes to publish"
+          else
+            git commit -m "Publish DataCATS-site@${GITHUB_SHA}"
+            git push
+          fi

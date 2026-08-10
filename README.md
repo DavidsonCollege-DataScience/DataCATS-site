@@ -59,8 +59,6 @@ Academic breaks (Fall Break, Thanksgiving, Spring Break, etc.) live in `src/data
 
 ## Deployment
 
-`.github/workflows/deploy.yml` builds the site and deploys `dist/` to GitHub Pages on every push to `main`. One-time setup: in the repo's Settings → Pages, set "Source" to "GitHub Actions" — no secrets required.
+`.github/workflows/publish.yml` builds the site, then publishes `dist/` into the `datacats/` subfolder of [`DavidsonCollege-DataScience/datasci-hub`](https://github.com/DavidsonCollege-DataScience/datasci-hub) on every push to `main`. That hub repo is the only one that deploys to the shared `datasci.davidson.edu` Azure Static Web App — see its README for why (Azure SWA deploys fully replace the app's content, so three repos deploying straight to it would clobber each other) and for the one-time secret setup (`HUB_REPO_PUSH_TOKEN`, a fine-grained PAT scoped to just that repo).
 
-The site is served from `https://davidsoncollege-datacats.github.io/DataCATS-site/` (a subpath, not the domain root), so `astro.config.mjs` sets `site`/`base` accordingly, and internal links use the `withBase()` helper (`src/lib/url.ts`) instead of hardcoded `/`-rooted paths so they resolve correctly under that subpath.
-
-This is meant as a placeholder — swap it for the Azure Static Web Apps workflow (see git history) once that resource exists.
+The site is served from `https://datasci.davidson.edu/datacats/` (a subpath, not the domain root), so `astro.config.mjs` sets `site`/`base` accordingly, and internal links use the `withBase()` helper (`src/lib/url.ts`) instead of hardcoded `/`-rooted paths so they resolve correctly under that subpath.

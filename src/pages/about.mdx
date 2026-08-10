@@ -4,6 +4,7 @@ title: About | Data CATS
 ---
 
 import OfficeHoursCard from '../components/OfficeHoursCard.astro';
+import { withBase } from '../lib/url';
 
 # About Data CATS
 
@@ -19,6 +20,6 @@ The Data CATS lab is located in **Chambers 3146**. Beginning in August 2027, we'
 
 <OfficeHoursCard />
 
-- **Browse consultants** on the [homepage](/DataCATS-site/) and filter by skill area, tool, major, coursework, or language to find the best match for your project.
+- **Browse consultants** on the <a href={withBase('')}>homepage</a> and filter by skill area, tool, major, coursework, or language to find the best match for your project.
 - **Drop in** during office hours, no appointment needed! See the homepage for the current location and schedule.
-- **Book an appointment** with a consultant. Browse their profiles and find an open slot on their calendar, or check the [team calendar](/DataCATS-site/calendar) to browse everyone's availability at once.
+- **Book an appointment** with a consultant. Browse their profiles and find an open slot on their calendar, or check the <a href={withBase('calendar')}>team calendar</a> to browse everyone's availability at once.
