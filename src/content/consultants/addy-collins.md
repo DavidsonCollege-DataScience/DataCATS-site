@@ -26,8 +26,8 @@ languages:
   - English
 homeCountry: United States
 socials:
-  linkedin: www.linkedin.com/in/addison-collins-7a1052412
-  instagram: addisonn.collins
+  linkedin: https://www.linkedin.com/in/addison-collins-7a1052412
+  instagram: https://www.instagram.com/addisonn.collins
 experience:
   - title: Assistant to Chief Economic Impact Officer
     organization: Freedom Communities
