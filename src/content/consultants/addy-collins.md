@@ -39,4 +39,4 @@ meetingModes:
 zoomSchedulerUrl: https://davidson.zoom.us/zbook/pete-benbow/
 ---
 
-I’m passionate about the human stories in data. Whether I’m analyzing data, writing a paper, or working alongside a neighbor, I’m drawn to the same thing: engaging with people on a human level and contributing to something larger than myself.
+I'm passionate about the human stories in data. Whether I'm analyzing data, writing a paper, or working alongside a neighbor, I'm drawn to the same thing: engaging with people on a human level and contributing to something larger than myself.
