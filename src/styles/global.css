@@ -15,7 +15,6 @@
 /*
  * Davidson College official brand palette.
  * Source: https://marketing-toolbox.dcreate.domains/branding-assets/color/
- * Mirrored in src/lib/colors.ts for use in plain JS/Svelte (e.g. FullCalendar).
  */
 @theme {
   --color-davidson-red: #D42121;
@@ -38,31 +37,6 @@
   --color-cool-gray-8: #8D898A;
   --color-cool-gray-10: #6A6869;
   --color-gray-7540: #4A484A;
-}
-
-/* FullCalendar events offered as "in-person or virtual" — split red/blue so it
-   reads as "both", rather than introducing an unrelated third color. */
-.fc-event-either {
-  background-image: linear-gradient(135deg, var(--color-davidson-red) 50%, var(--color-lake-blue) 50%) !important;
-  border-color: var(--color-davidson-black) !important;
-}
-
-/* Re-theme FullCalendar's own chrome (grid lines, header cells, buttons, "today"
-   highlight) for dark mode via its CSS custom-property API. Event colors
-   (in-person/virtual/either/standing-hours) are intentionally left alone — they're
-   brand- and legend-coded, and should mean the same thing in either theme. */
-.dark .fc {
-  --fc-border-color: var(--color-cool-gray-10);
-  --fc-neutral-bg-color: #262626;
-  --fc-page-bg-color: transparent;
-  --fc-list-event-hover-bg-color: #404040;
-  --fc-today-bg-color: rgba(212, 33, 33, 0.15);
-  --fc-button-bg-color: #404040;
-  --fc-button-border-color: #525252;
-  --fc-button-hover-bg-color: #525252;
-  --fc-button-hover-border-color: #737373;
-  --fc-button-active-bg-color: #262626;
-  --fc-button-active-border-color: #737373;
 }
 
 /* Respect the user's OS-level motion preference for Astro's page-navigation

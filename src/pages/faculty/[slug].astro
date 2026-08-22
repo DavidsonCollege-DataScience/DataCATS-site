@@ -3,13 +3,10 @@ import { getCollection, render } from 'astro:content';
 import { getImage } from 'astro:assets';
 import { Icon } from 'astro-icon/components';
 import Layout from '../../layouts/Layout.astro';
-import ConsultantSchedule from '../../components/ConsultantSchedule.svelte';
 import SocialLinks from '../../components/SocialLinks.astro';
 import ScheduleButton from '../../components/ScheduleButton.svelte';
 import { meetingModeIcons } from '../../lib/meetingModes';
 import { countryFlagUrl } from '../../lib/countryFlags';
-import availabilityRaw from '../../data/availability.json';
-import recurringAvailabilityRaw from '../../data/recurringAvailability.json';
 
 export async function getStaticPaths() {
   const entries = await getCollection('faculty');
@@ -21,12 +18,6 @@ const { data } = entry;
 const { Content } = await render(entry);
 
 const optimized = await getImage({ src: data.headshot, width: 500, height: 500 });
-const events = availabilityRaw
-  .filter((e) => e.slug === entry.id)
-  .map((e) => ({ ...e, name: data.name }));
-const recurringEvents = recurringAvailabilityRaw
-  .filter((e) => e.slug === entry.id)
-  .map((e) => ({ ...e, name: data.name }));
 const flagUrl = countryFlagUrl(data.homeCountry);
 ---
 
@@ -120,20 +111,6 @@ const flagUrl = countryFlagUrl(data.homeCountry);
           </ul>
         </section>
       )}
-
-      <section>
-        <h2 class="text-lg font-semibold text-slate-900 dark:text-neutral-100">Availability</h2>
-        <p class="mt-1 text-sm text-slate-500 dark:text-neutral-400">Click an open slot to book time with {data.name}.</p>
-        <div class="mt-2">
-          <ConsultantSchedule
-            client:load
-            {events}
-            {recurringEvents}
-            consultantName={data.name}
-            zoomSchedulerUrl={data.zoomSchedulerUrl ?? ''}
-          />
-        </div>
-      </section>
     </div>
   </div>
 </Layout>

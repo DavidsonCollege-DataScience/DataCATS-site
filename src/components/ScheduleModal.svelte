@@ -8,22 +8,12 @@
   export let open = false;
   export let zoomSchedulerUrl = '';
   export let consultantName = '';
-  export let slot = null; // { start: Date, end: Date }
   export let onClose = () => {};
 
   let dialogEl;
   let closeButtonEl;
   let previouslyFocused = null;
   let wasOpen = false;
-
-  function formatSlot(s) {
-    if (!s) return '';
-    const opts = { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' };
-    return `${new Date(s.start).toLocaleString(undefined, opts)} – ${new Date(s.end).toLocaleTimeString(undefined, {
-      hour: 'numeric',
-      minute: '2-digit',
-    })}`;
-  }
 
   function getFocusable() {
     if (!dialogEl) return [];
@@ -99,9 +89,6 @@
       <div class="mb-3 flex items-start justify-between">
         <div>
           <h2 class="text-lg font-semibold text-slate-900 dark:text-neutral-100">Book time with {consultantName}</h2>
-          {#if slot}
-            <p class="text-sm text-slate-500 dark:text-neutral-400">{formatSlot(slot)}</p>
-          {/if}
         </div>
         <button
           bind:this={closeButtonEl}

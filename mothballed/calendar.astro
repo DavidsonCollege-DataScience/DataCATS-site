@@ -1,10 +1,16 @@
 ---
+// MOTHBALLED — pulled out of src/pages (so it's no longer built/routed) on 2026-08-22
+// at the site owner's request. The interactive calendar it depended on
+// (TeamCalendar.svelte, ConsultantSchedule.svelte, and the availability/*.json data
+// files below) was deleted outright, so this file won't run as-is. Kept here as a
+// reference for what the page looked like if the team-calendar feature ever comes
+// back — restoring it means resurrecting those components and data files too.
 import { getCollection } from 'astro:content';
-import Layout from '../layouts/Layout.astro';
-import TeamCalendar from '../components/TeamCalendar.svelte';
-import { allMajors } from '../lib/consultant';
-import availabilityRaw from '../data/availability.json';
-import recurringAvailabilityRaw from '../data/recurringAvailability.json';
+import Layout from '../src/layouts/Layout.astro';
+import TeamCalendar from '../src/components/TeamCalendar.svelte';
+import { allMajors } from '../src/lib/consultant';
+import availabilityRaw from '../src/data/availability.json';
+import recurringAvailabilityRaw from '../src/data/recurringAvailability.json';
 
 const entries = (await getCollection('consultants')).filter((e) => e.data.active);
 const facultyEntries = (await getCollection('faculty')).filter((e) => e.data.active);

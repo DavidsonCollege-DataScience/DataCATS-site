@@ -14,11 +14,6 @@
   "dependencies": {
     "@astrojs/mdx": "^7.0.2",
     "@astrojs/svelte": "^9.0.0",
-    "@fullcalendar/core": "^6.1.21",
-    "@fullcalendar/daygrid": "^6.1.21",
-    "@fullcalendar/interaction": "^6.1.21",
-    "@fullcalendar/list": "^6.1.21",
-    "@fullcalendar/timegrid": "^6.1.21",
     "@iconify-json/heroicons": "^1.2.3",
     "@iconify-json/simple-icons": "^1.2.88",
     "@tailwindcss/typography": "^0.5.20",
