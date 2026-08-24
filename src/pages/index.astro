@@ -1,117 +1,167 @@
 ---
-import { getCollection } from 'astro:content';
-import { getImage } from 'astro:assets';
-import { Icon } from 'astro-icon/components';
-import Layout from '../layouts/Layout.astro';
-import ConsultantGrid from '../components/ConsultantGrid.svelte';
-import OfficeHoursCard from '../components/OfficeHoursCard.astro';
-import { majorMinorLabel, allMajors } from '../lib/consultant';
-import { withBase } from '../lib/url';
-import { countryFlagUrl } from '../lib/countryFlags';
+import { getCollection } from "astro:content";
+import { getImage } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import Layout from "../layouts/Layout.astro";
+import ConsultantGrid from "../components/ConsultantGrid.svelte";
+import OfficeHoursCard from "../components/OfficeHoursCard.astro";
+import { majorMinorLabel, allMajors } from "../lib/consultant";
+import { withBase } from "../lib/url";
+import { countryFlagUrl } from "../lib/countryFlags";
 
-const entries = (await getCollection('consultants')).filter((e) => e.data.active);
+const entries = (await getCollection("consultants")).filter(
+    (e) => e.data.active,
+);
 
 const consultants = await Promise.all(
-  entries.map(async (entry) => {
-    const optimized = await getImage({ src: entry.data.headshot, width: 400, height: 400 });
-    return {
-      slug: entry.id,
-      name: entry.data.name,
-      headshotSrc: optimized.src,
-      classYear: entry.data.classYear,
-      majorMinorLabel: majorMinorLabel(entry.data),
-      majorsForFilter: allMajors(entry.data),
-      skillAreas: entry.data.skillAreas,
-      tools: entry.data.tools,
-      coursework: entry.data.coursework,
-      languages: entry.data.languages,
-      homeCountry: entry.data.homeCountry,
-      flagUrl: countryFlagUrl(entry.data.homeCountry),
-    };
-  }),
+    entries.map(async (entry) => {
+        const optimized = await getImage({
+            src: entry.data.headshot,
+            width: 400,
+            height: 400,
+        });
+        return {
+            slug: entry.id,
+            name: entry.data.name,
+            headshotSrc: optimized.src,
+            classYear: entry.data.classYear,
+            majorMinorLabel: majorMinorLabel(entry.data),
+            majorsForFilter: allMajors(entry.data),
+            skillAreas: entry.data.skillAreas,
+            tools: entry.data.tools,
+            coursework: entry.data.coursework,
+            languages: entry.data.languages,
+            homeCountry: entry.data.homeCountry,
+            flagUrl: countryFlagUrl(entry.data.homeCountry),
+        };
+    }),
 );
 
 consultants.sort((a, b) => a.name.localeCompare(b.name));
 
-const facultyEntries = (await getCollection('faculty')).filter((e) => e.data.active);
+const facultyEntries = (await getCollection("faculty")).filter(
+    (e) => e.data.active,
+);
 const faculty = await Promise.all(
-  facultyEntries.map(async (entry) => {
-    const optimized = await getImage({ src: entry.data.headshot, width: 400, height: 400 });
-    return {
-      slug: entry.id,
-      name: entry.data.name,
-      headshotSrc: optimized.src,
-      department: entry.data.department,
-      skillAreas: entry.data.skillAreas,
-      tools: entry.data.tools,
-      homeCountry: entry.data.homeCountry,
-      flagUrl: countryFlagUrl(entry.data.homeCountry),
-    };
-  }),
+    facultyEntries.map(async (entry) => {
+        const optimized = await getImage({
+            src: entry.data.headshot,
+            width: 400,
+            height: 400,
+        });
+        return {
+            slug: entry.id,
+            name: entry.data.name,
+            headshotSrc: optimized.src,
+            department: entry.data.department,
+            skillAreas: entry.data.skillAreas,
+            tools: entry.data.tools,
+            homeCountry: entry.data.homeCountry,
+            flagUrl: countryFlagUrl(entry.data.homeCountry),
+        };
+    }),
 );
 ---
 
 <Layout>
-  <div class="mb-6 flex items-start gap-3 rounded-xl border border-davidson-red/30 bg-davidson-red/10 p-4 text-sm text-davidson-red-deep dark:border-davidson-red/40 dark:bg-davidson-red/20 dark:text-davidson-red-light">
-    <Icon name="heroicons:megaphone-solid" class="mt-0.5 h-5 w-5 flex-shrink-0" />
-    <p><strong>Office hours start Sunday, August 30.</strong> Drop by Chambers 3146 during the hours below, or book time with a consultant directly through their profile.</p>
-  </div>
-
-  <div class="mb-8">
-    <h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-neutral-100">Welcome to Data CATS!</h1>
-    <p class="mt-2 max-w-2xl text-slate-600 dark:text-neutral-400">
-      The Data CATS (Consulting, Analytics, and Tutoring Services) team provides data science assistance
-      to Davidson College students, faculty, and staff, as well as the surrounding community.
-    </p>
-  </div>
-
-  <OfficeHoursCard />
-
-  <div class="mb-8">
-    <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-neutral-100">Meet the Team</h2>
-    <p class="mt-2 max-w-2xl text-slate-600 dark:text-neutral-400">
-      Browse our consultants below, and click to view their profiles and availability.
-    </p>
-  </div>
-  <ConsultantGrid client:load consultants={consultants} />
-
-  {faculty.length > 0 && (
-    <div class="mt-16">
-      <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-neutral-100">Faculty</h2>
-      <div class="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {faculty.map((person) => (
-          <a
-            href={withBase(`faculty/${person.slug}`)}
-            class="group block overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md dark:border-neutral-700 dark:bg-neutral-800"
-          >
-            <div class="aspect-square w-full overflow-hidden bg-slate-100 dark:bg-neutral-700">
-              <img
-                src={person.headshotSrc}
-                alt={person.name}
-                class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
-                style={`view-transition-name: headshot-${person.slug}`}
-              />
-            </div>
-            <div class="p-4">
-              <div class="flex items-center justify-between gap-2">
-                <h3 class="font-semibold text-slate-900 dark:text-neutral-100">{person.name}</h3>
-                {person.flagUrl && <img src={person.flagUrl} alt={person.homeCountry} class="h-4 w-5 flex-shrink-0" />}
-              </div>
-              <p class="text-sm text-slate-700 dark:text-neutral-300">{person.department}</p>
-              {(person.skillAreas.length > 0 || person.tools.length > 0) && (
-                <div class="mt-2 flex flex-wrap gap-1.5">
-                  {person.skillAreas.map((skillArea) => (
-                    <span class="rounded-full bg-lake-blue/10 px-2 py-0.5 text-xs font-medium text-lake-blue dark:bg-lake-blue/30 dark:text-cool-gray-1">{skillArea}</span>
-                  ))}
-                  {person.tools.map((tool) => (
-                    <span class="rounded-full bg-davidson-red/10 px-2 py-0.5 text-xs font-medium text-davidson-red-deep dark:bg-davidson-red/30 dark:text-cool-gray-1">{tool}</span>
-                  ))}
-                </div>
-              )}
-            </div>
-          </a>
-        ))}
-      </div>
+    <div class="mb-8">
+        <h1
+            class="text-3xl font-bold tracking-tight text-slate-900 dark:text-neutral-100"
+        >
+            Welcome to Data CATS!
+        </h1>
+        <p class="mt-2 max-w-2xl text-slate-600 dark:text-neutral-400">
+            The Data CATS (Consulting, Analytics, and Tutoring Services) team
+            provides data science assistance to Davidson College students,
+            faculty, and staff, as well as the surrounding community.
+        </p>
     </div>
-  )}
+
+    <div
+        class="mb-6 flex items-start gap-3 rounded-xl border border-davidson-red/30 bg-davidson-red/10 p-4 text-sm text-davidson-red-deep dark:border-davidson-red/40 dark:bg-davidson-red/20 dark:text-davidson-red-light"
+    >
+        <Icon
+            name="heroicons:megaphone-solid"
+            class="mt-0.5 h-5 w-5 flex-shrink-0"
+        />
+        <p>
+            <strong>Office hours start Sunday, August 30.</strong> Drop by Chambers
+            3146 during the hours below, or book time with a consultant directly through
+            their profile.
+        </p>
+    </div>
+
+    <OfficeHoursCard />
+
+    <div class="mb-8">
+        <h2
+            class="text-2xl font-bold tracking-tight text-slate-900 dark:text-neutral-100"
+        >
+            Meet the Team
+        </h2>
+        <p class="mt-2 max-w-2xl text-slate-600 dark:text-neutral-400">
+            Browse our consultants below, and click to view their profiles and
+            availability.
+        </p>
+    </div>
+    <ConsultantGrid client:load consultants={consultants} />
+
+    {
+        faculty.length > 0 && (
+            <div class="mt-16">
+                <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-neutral-100">
+                    Faculty
+                </h2>
+                <div class="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                    {faculty.map((person) => (
+                        <a
+                            href={withBase(`faculty/${person.slug}`)}
+                            class="group block overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md dark:border-neutral-700 dark:bg-neutral-800"
+                        >
+                            <div class="aspect-square w-full overflow-hidden bg-slate-100 dark:bg-neutral-700">
+                                <img
+                                    src={person.headshotSrc}
+                                    alt={person.name}
+                                    class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+                                    style={`view-transition-name: headshot-${person.slug}`}
+                                />
+                            </div>
+                            <div class="p-4">
+                                <div class="flex items-center justify-between gap-2">
+                                    <h3 class="font-semibold text-slate-900 dark:text-neutral-100">
+                                        {person.name}
+                                    </h3>
+                                    {person.flagUrl && (
+                                        <img
+                                            src={person.flagUrl}
+                                            alt={person.homeCountry}
+                                            class="h-4 w-5 flex-shrink-0"
+                                        />
+                                    )}
+                                </div>
+                                <p class="text-sm text-slate-700 dark:text-neutral-300">
+                                    {person.department}
+                                </p>
+                                {(person.skillAreas.length > 0 ||
+                                    person.tools.length > 0) && (
+                                    <div class="mt-2 flex flex-wrap gap-1.5">
+                                        {person.skillAreas.map((skillArea) => (
+                                            <span class="rounded-full bg-lake-blue/10 px-2 py-0.5 text-xs font-medium text-lake-blue dark:bg-lake-blue/30 dark:text-cool-gray-1">
+                                                {skillArea}
+                                            </span>
+                                        ))}
+                                        {person.tools.map((tool) => (
+                                            <span class="rounded-full bg-davidson-red/10 px-2 py-0.5 text-xs font-medium text-davidson-red-deep dark:bg-davidson-red/30 dark:text-cool-gray-1">
+                                                {tool}
+                                            </span>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        </a>
+                    ))}
+                </div>
+            </div>
+        )
+    }
 </Layout>
