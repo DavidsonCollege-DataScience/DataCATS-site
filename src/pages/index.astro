@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import { getImage } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
 import Layout from '../layouts/Layout.astro';
 import ConsultantGrid from '../components/ConsultantGrid.svelte';
 import OfficeHoursCard from '../components/OfficeHoursCard.astro';
@@ -51,6 +52,11 @@ const faculty = await Promise.all(
 ---
 
 <Layout>
+  <div class="mb-6 flex items-start gap-3 rounded-xl border border-davidson-red/30 bg-davidson-red/10 p-4 text-sm text-davidson-red-deep dark:border-davidson-red/40 dark:bg-davidson-red/20 dark:text-davidson-red-light">
+    <Icon name="heroicons:megaphone-solid" class="mt-0.5 h-5 w-5 flex-shrink-0" />
+    <p><strong>Office hours start Sunday, August 30.</strong> Drop by Chambers 3146 during the hours below, or book time with a consultant directly through their profile.</p>
+  </div>
+
   <div class="mb-8">
     <h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-neutral-100">Welcome to Data CATS!</h1>
     <p class="mt-2 max-w-2xl text-slate-600 dark:text-neutral-400">
