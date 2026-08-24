@@ -78,6 +78,7 @@ const faculty = await Promise.all(
     </div>
 
     <div
+        id="office-hours-banner"
         class="mb-6 flex items-start gap-3 rounded-xl border border-davidson-red/30 bg-davidson-red/10 p-4 text-sm text-davidson-red-deep dark:border-davidson-red/40 dark:bg-davidson-red/20 dark:text-davidson-red-light"
     >
         <Icon
@@ -90,6 +91,17 @@ const faculty = await Promise.all(
             their profile.
         </p>
     </div>
+
+    <script>
+      // Semester-start announcement above — auto-hide it once it's stale. This is a
+      // static site (only rebuilt when something's pushed to main), so a build-time
+      // date check can't be trusted to flip on the right day; checking the visitor's
+      // own clock on page load works regardless of when the site was last deployed.
+      const OFFICE_HOURS_BANNER_EXPIRES = Date.UTC(2026, 8, 1); // September 1, 2026 (UTC midnight)
+      if (Date.now() >= OFFICE_HOURS_BANNER_EXPIRES) {
+        document.getElementById('office-hours-banner')?.remove();
+      }
+    </script>
 
     <OfficeHoursCard />
 
