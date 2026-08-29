@@ -52,5 +52,10 @@ experience:
     organization: Amazon Lab126
     dates: Summer 2025
     description: Built infrastructure for client side agent detection.
+meetingModes:
+  - in-person
+  - virtual
 zoomSchedulerUrl: https://davidson.zoom.us/zbook/pete-benbow/
 ---
+
+Alp is a junior Computer Science major with a Data Science minor. He works mostly in Python and TypeScript, and enjoys helping with machine learning and natural language processing projects, cleaning up messy data pipelines, and turning analysis into something people can actually click through — a chart, a dashboard, or a small web app. He has interned as a software engineer at Google Maps and Amazon Lab126, and is happy to talk through anything from a first Python script to deploying a model.

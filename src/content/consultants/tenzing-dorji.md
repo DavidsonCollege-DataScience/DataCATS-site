@@ -64,5 +64,10 @@ experience:
     organization: ALPhA Lab | FRIB Collaboration (MSU)
     dates: Summer 2025
     description: Developed deep learning architectures for 4D AT-TPC detector data.
+meetingModes:
+  - in-person
+  - virtual
 zoomSchedulerUrl: https://davidson.zoom.us/zbook/pete-benbow/
 ---
+
+Tenzing is a junior double majoring in Computer Science and Economics. His work sits where the two meet: deep learning research on detector data with the ALPhA Lab, an AI study tool built for a client partner through the Hurt Hub, and coursework spanning database systems, econometrics, and international trade. He is comfortable in Python, R, SQL, and Java, and is glad to help with machine learning projects, database design, and making analysis readable through clear visualizations.
