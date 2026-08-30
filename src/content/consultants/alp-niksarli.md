@@ -26,6 +26,9 @@ coursework:
   - course: "CSC 312: Software Design"
     instructor: T Lim
     term: Spring 2024
+  - course: "CSC 353: Database Systems"
+    instructor: H Mendes
+    term: Spring 2026
   - course: "CSC 363: Human Computer Interaction"
     instructor: K Williams
     term: Spring 2024

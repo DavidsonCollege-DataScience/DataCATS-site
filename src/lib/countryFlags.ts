@@ -12,6 +12,7 @@ const COUNTRY_TO_ISO_CODE: Record<string, string> = {
   Austria: 'AT',
   Bangladesh: 'BD',
   Belgium: 'BE',
+  Bhutan: 'BT',
   Bolivia: 'BO',
   Brazil: 'BR',
   Bulgaria: 'BG',
