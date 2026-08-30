@@ -58,4 +58,4 @@ experience:
 zoomSchedulerUrl: https://davidson.zoom.us/zbook/alp-niksarli-s7srwj/15-mins-with-alp
 ---
 
-Alp is a junior Computer Science major with a Data Science minor who works at the intersection of software engineering and data science — building the pipelines, models, and interfaces that turn data into something usable. He has interned as a software engineer at Google Maps and Amazon Lab126, and does research on LLM systems, spanning natural language processing and agent-based tooling.
+Alp is a senior Computer Science major with a Data Science minor, working at the intersection of software engineering and data science. His research focuses on LLM systems.
