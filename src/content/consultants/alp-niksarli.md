@@ -57,3 +57,5 @@ experience:
     description: Built infrastructure for client side agent detection.
 zoomSchedulerUrl: https://davidson.zoom.us/zbook/alp-niksarli-s7srwj/15-mins-with-alp
 ---
+
+Alp is a senior Computer Science major with a Data Science minor, working at the intersection of software engineering and data science. His research focuses on LLM systems.
