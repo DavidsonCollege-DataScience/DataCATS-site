@@ -64,5 +64,4 @@ experience:
     organization: ALPhA Lab | FRIB Collaboration (MSU)
     dates: Summer 2025
     description: Developed deep learning architectures for 4D AT-TPC detector data.
-zoomSchedulerUrl: https://davidson.zoom.us/zbook/pete-benbow/
 ---

@@ -45,5 +45,5 @@ experience:
 meetingModes:
   - in-person
   - virtual
-zoomSchedulerUrl: https://davidson.zoom.us/zbook/pete-benbow/data-cats-office-hours
+zoomSchedulerUrl: https://davidson.zoom.us/zbook/jonathan-arenas-d1x0mh/datacatsappt
 ---

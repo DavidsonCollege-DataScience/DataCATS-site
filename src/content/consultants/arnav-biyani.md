@@ -50,7 +50,6 @@ experience:
 meetingModes:
   - in-person
   - virtual
-zoomSchedulerUrl: https://davidson.zoom.us/zbook/pete-benbow/
 ---
 
 Arnav is a sophomore Economics major with a Data Science minor who specializes in exploratory data analysis, financial and statistical modeling, and data visualization in R, Excel, and Observable Plot.

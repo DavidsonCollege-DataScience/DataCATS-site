@@ -47,7 +47,6 @@ experience:
   - title: Community Research Fellow
     organization: Mulliss Center for Civic Engagement at Davidson, Department of Data Science
     dates: Summer 2025
-zoomSchedulerUrl: https://davidson.zoom.us/zbook/pete-benbow/
 ---
 
 Patrick is a senior Data Science major who specializes in data pipelines and visualization.

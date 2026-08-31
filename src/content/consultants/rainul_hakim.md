@@ -39,6 +39,4 @@ experience:
     organization: Algorithms for Learning in Physics Applications (ALPhA), Davidson College Math and Science Department
     dates: Summer 2026
     description: Applied contrastive self-supervised learning with a DGCNN encoder to nuclear detector data, training a deep neural network to learn meaningful representations of particle collision events from raw 3D point cloud data without requiring manual labels during training. Evaluated learned representations through linear probing and conducted augmentation ablation experiments to improve model performance. Built an end-to-end data pipeline and contributed reproducible code to a shared research codebase.
-
-zoomSchedulerUrl: https://davidson.zoom.us/zbook/pete-benbow/
 ---

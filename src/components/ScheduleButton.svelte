@@ -19,7 +19,17 @@
     open={modalOpen}
     {zoomSchedulerUrl}
     {consultantName}
-    slot={null}
     onClose={() => (modalOpen = false)}
   />
+{:else}
+  <!-- No Zoom Scheduler set up for this person — show it as an inert state rather
+       than omitting the button, so it's clear they're drop-in-only, not unbookable. -->
+  <button
+    type="button"
+    disabled
+    aria-disabled="true"
+    class="mt-4 block w-full cursor-not-allowed rounded-md bg-slate-200 px-4 py-2.5 text-center text-sm font-semibold text-slate-500 dark:bg-neutral-700 dark:text-neutral-400"
+  >
+    Drop-in visits only
+  </button>
 {/if}

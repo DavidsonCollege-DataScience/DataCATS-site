@@ -44,5 +44,4 @@ experience:
     organization: Mulliss Center for Civic Engagement at Davidson, Department of Data Science
     dates: Summer 2026
     description: Created a backend data warehouse to store, clean, and load relevant data, including the Census ACS data, into a custom website for the North Mecklenburg Community.
-zoomSchedulerUrl: https://davidson.zoom.us/zbook/pete-benbow/
 ---
