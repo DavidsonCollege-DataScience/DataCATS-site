@@ -26,6 +26,9 @@ coursework:
   - course: "CSC 312: Software Design"
     instructor: T Lim
     term: Spring 2024
+  - course: "CSC 353: Database Systems"
+    instructor: H Mendes
+    term: Spring 2026
   - course: "CSC 363: Human Computer Interaction"
     instructor: K Williams
     term: Spring 2024
@@ -52,5 +55,7 @@ experience:
     organization: Amazon Lab126
     dates: Summer 2025
     description: Built infrastructure for client side agent detection.
-zoomSchedulerUrl: https://davidson.zoom.us/zbook/pete-benbow/
+zoomSchedulerUrl: https://davidson.zoom.us/zbook/alp-niksarli-s7srwj/15-mins-with-alp
 ---
+
+Alp is a senior Computer Science major with a Data Science minor, working at the intersection of software engineering and data science. His research focuses on LLM systems.
